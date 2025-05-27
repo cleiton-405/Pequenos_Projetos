@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="Imagens/calculadora.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>Calculadora</title>
+
+</head>
+<body>
+
+    <h1>Calculadora</h1>
+
+        <br><br>
+
+            <main>
+                <section>
+                    <div class="inputs">
+                        <label>
+                            <input type="number" id="n1" placeholder="Digite um número...">
+                        </label>
+
+                    <br><br>
+
+                        <label>
+                            <input type="number" id="n2" placeholder="Digite um número...">
+                        </label>
+                    </div>
+                </section>
+
+        <br><br>
+
+                <section>
+                    <div class="bottoms">
+                        <button onclick="somar()">Somar</button>
+                        <button onclick="diminuir()">Diminuir</button>
+                        <button onclick="multiplicar()">Multiplicar</button>
+                        <button onclick="dividir()">Dividir</button>
+                        <button onclick="porcentagem()">Porcentagem</button>
+                    </div>
+                </section>
+
+        <br><br>
+
+                <section>
+                    <div class="result">
+                        <output id="output"></output>
+                    </div>
+                </section>
+            </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

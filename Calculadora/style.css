@@ -1,0 +1,80 @@
+body{
+    background-color: rgb(176, 178, 182);
+}
+
+@font-face {
+   font-family: animada;
+   src: url(Fonte/Howdy\ Koala.ttf);
+}
+
+h1{
+    text-align: center;
+    font-family: animada;
+    color: rgb(37, 102, 223);
+}
+
+main{
+    background-color: #919191;
+    padding: 15px;
+    margin: auto;
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 25%;
+}
+
+.inputs{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: auto;
+    margin-top: 10px;
+    width: 50%;
+}
+
+input{
+    outline: none;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 5px;
+    padding: 5px;
+    border: 2px solid black;
+
+    &:hover{
+        border: 1px solid black;
+        &::placeholder{
+            color: black
+        }
+    }
+}
+
+.bottoms{
+    text-align: center;
+    padding: 10px;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+button{
+    padding: 10px;
+    background-color: #0097b2;
+    font-weight: bold;
+    font-family: animada;
+    border-radius: 10px;
+}
+
+button:hover{
+    color: rgb(255, 255, 255);
+}
+
+.result{
+    text-align: center;
+    margin: auto;
+    border: 3px solid black;
+    background-color: #0097b2;
+    border-radius: 10px;
+    padding: 10px;
+    width: 50px;
+    height: 20px;
+}

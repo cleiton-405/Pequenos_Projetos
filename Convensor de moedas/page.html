@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="shortcut icon" href="Ícones/exchange.png" type="image/x-icon">
+
+    <title>Conversor de Moedas</title>
+
+</head>
+<body>
+    <main>
+        <h1>Currency Converter</h1>
+
+        <section class="container-input">
+            <p><span>Enter Amount</span></p>
+                <input type="number" id="num" placeholder="Digite um número...">
+        </section>
+
+        <br><br>
+
+            <div class="container-conversor">
+                <label><span>From</span>
+                    <select id="conversor1">
+                        <option value="" selected disabled>Selecione...</option>
+                        <option value="euro">EUR</option>
+                        <option value="dolar">EUA</option>
+                        <option value="real">BRA</option>
+                        <option value="iene">JPN</option>
+                    </select>
+                </label>
+
+            <br><br>
+
+                <label><span>To</span>
+                    <select id="conversor2">
+                        <option value="" selected disabled>Selecione...</option>
+                        <option value="euro">EUR</option>
+                        <option value="dolar">EUA</option>
+                        <option value="real">BRA</option>
+                        <option value="iene">JPN</option>
+                    </select>
+                </label>
+            </div>
+            
+        <br><br>
+
+        <section class="container-result">
+            <output id="output"></output>
+
+            <br><br>
+
+            <button onclick="conversor()">Get Exchange Rate</button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
