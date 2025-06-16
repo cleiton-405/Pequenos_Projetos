@@ -35,6 +35,11 @@ main{
     margin-bottom: 50px;
 }
 
+input::placeholder{
+    color: #00bf63;
+    font-style: italic;
+}
+
 .container-input input{
     outline: none;
     font-size: 15px;
