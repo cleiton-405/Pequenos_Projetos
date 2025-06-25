@@ -1,0 +1,135 @@
+
+
+body{
+    background-color: rgb(255, 255, 255);
+    font-family: more-sugar;
+    color: white;
+}
+
+@font-face {
+    font-family: more-sugar;
+    src: url(Fonte/MoreSugar-Regular.ttf);
+}
+
+h1{
+    background-color: #260f99;
+    text-align: center;
+    border-radius: 20px;
+    margin-left: 350px;
+    margin-right: 350px;
+    padding: 30px;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 500px;
+}
+
+.first-section{
+    background: linear-gradient(to right,#898686, #3f45cf);
+    border-radius: 30px;
+    padding: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+
+    width: 300px;
+    height: 500px;
+}
+
+.first-label{
+    background-color: #260f99;
+    padding: 15px;
+    border-radius: 23px;
+}
+
+#name-adicionar, #texttarefas{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-radius: 23px;
+    text-align: center;
+    padding: 10px;
+}
+
+.second-label{
+    background-color: #260f99;
+    padding: 15px;
+    border-radius: 23px;
+}
+
+.second-section{
+    background: linear-gradient(to right,#898686, #3f45cf);
+    padding: 20px;
+    border-radius: 30px;
+
+    width: 300px;
+    height: 500px;
+}
+
+.button-add{
+    font-family: more-sugar;
+    background-color: black;
+    color: white;
+    border-style: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;  
+    transition: box-shadow 0.5s ease;
+}
+
+.btn-excluir{
+    font-family: more-sugar;
+    background-color: black;
+    color: white;
+    border-style: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 12px;
+    width: 70px;
+    cursor: pointer;  
+    transition: box-shadow 0.5s ease;
+}
+
+.btn-excluir:hover{
+    box-shadow: inset 260px 0 0 rgb(85, 84, 84);
+}
+
+.button-add:hover{
+    box-shadow: inset 200px 0 0 rgb(85, 84, 84);
+}
+
+.sem-tarefas {
+    text-align: center;
+    margin-top: 200px;
+    font-size: 30px;
+}
+
+.lista-tarefas{
+    list-style-type: none;
+}
+
+.item-tarefa{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.first-section p{
+    font-size: 30px;
+    margin-bottom: 50px;
+}
+
+input::placeholder{
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-family: more-sugar;
+}

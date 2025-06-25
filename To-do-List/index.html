@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>To-do-list</title>
+</head>
+<body>
+    <h1>To do List</h1>
+
+    <main>
+        <section class="first-section">
+            <p>Máximo 3 tarefas</p>
+
+            <label class="first-label">
+                <input type="text" id="name-adicionar" placeholder="Digite seu nome...">
+            </label>
+
+            <br><br>
+
+            <label class="second-label">
+                <input type="text" id="texttarefas" placeholder="Escreva aqui...">
+            </label>
+
+            <br><br>
+
+            <button class="button-add" onclick="adicionar()">Adicionar</button>
+        </section>
+
+        <section class="second-section">
+            <div id="output"></div>
+
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
