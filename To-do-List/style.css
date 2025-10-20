@@ -1,7 +1,23 @@
 body{
-    background-color: rgb(255, 255, 255);
     font-family: more-sugar;
     color: white;
+    
+  --s: 222px; /* control the size*/
+  --c1: #7f727b;
+  --c2: #d6b4c2;
+  --c3: #baa0ab;
+  
+  --_g: var(--c1) 10%,var(--c2) 10.5% 19%,#0000 19.5% 80.5%,var(--c2) 81% 89.5%,var(--c3) 90%;
+  --_c: from -90deg at 37.5% 50%,#0000 75%;
+  --_l1: linear-gradient(145deg,var(--_g));
+  --_l2: linear-gradient( 35deg,var(--_g));
+  background: 
+    var(--_l1), var(--_l1) calc(var(--s)/2) var(--s),
+    var(--_l2), var(--_l2) calc(var(--s)/2) var(--s),
+    conic-gradient(var(--_c),var(--c1) 0) calc(var(--s)/8) 0,
+    conic-gradient(var(--_c),var(--c3) 0) calc(var(--s)/2) 0,
+    linear-gradient(90deg,var(--c3) 38%,var(--c1) 0 50%,var(--c3) 0 62%,var(--c1) 0);
+  background-size: var(--s) calc(2*var(--s)/3);
 }
 
 @font-face {
@@ -10,38 +26,41 @@ body{
 }
 
 h1{
-    background-color: #260f99;
+    background-color: #adacb1;
     text-align: center;
     border-radius: 20px;
-    margin-left: 350px;
-    margin-right: 350px;
-    padding: 30px;
+    margin: auto;
+    padding: 10px;
+    width: 50%;
+    margin-bottom: 50px;
+}
+
+span{
+    color: rgb(0, 60, 255);
 }
 
 main{
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 500px;
+    justify-content: space-around;
 }
 
 .first-section{
-    background: linear-gradient(to right,#898686, #3f45cf);
+    background: linear-gradient(to right,#898686, #8789bd);
     border-radius: 30px;
     padding: 20px;
 
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
 
-    width: 300px;
-    height: 500px;
+    width: 20%;
+    min-width: 260px;
 }
 
-.first-label{
-    background-color: #260f99;
+.first-label, .second-label{
+    background-color: #a19cb9;
     padding: 15px;
     border-radius: 23px;
 }
@@ -55,70 +74,87 @@ main{
     padding: 10px;
 }
 
-.second-label{
-    background-color: #260f99;
-    padding: 15px;
-    border-radius: 23px;
-}
-
 .second-section{
-    background: linear-gradient(to right,#898686, #3f45cf);
+    background: linear-gradient(to right,#898686, #8789bd);
     padding: 20px;
     border-radius: 30px;
+    width: 15%;
+    min-width: 300px;
+    height: auto;
 
-    width: 300px;
-    height: 500px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
 }
 
-.button-add{
+.btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.btn.add, .btn.edit{
     font-family: more-sugar;
     background-color: black;
     color: white;
-    border-style: none;
-    padding: 15px;
-    border-radius: 10px;
-    font-size: 15px;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-size: 16px;
     cursor: pointer;  
-    transition: box-shadow 0.5s ease;
+    transition: 0.4s ease;
 }
 
-.btn-excluir{
+.btn.excluir{
     font-family: more-sugar;
     background-color: black;
     color: white;
-    border-style: none;
-    padding: 10px;
-    border-radius: 10px;
-    font-size: 12px;
+    border: none;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 13px;
     width: 70px;
     cursor: pointer;  
-    transition: box-shadow 0.5s ease;
+    transition: 0.4s ease;
 }
 
-.btn-excluir:hover{
-    box-shadow: inset 260px 0 0 rgb(85, 84, 84);
-}
 
-.button-add:hover{
-    box-shadow: inset 200px 0 0 rgb(85, 84, 84);
+.btn.add:hover, .btn.excluir:hover, .btn.edit:hover{
+    background-color:  rgb(255, 255, 255);
+    color: rgb(221, 111, 111);
 }
 
 .sem-tarefas {
     text-align: center;
-    margin-top: 200px;
-    font-size: 30px;
+    margin-top: 50px;
+    font-size: 28px;
+    color: white;
+}
+
+.lista-tarefas ul{
+    max-width: 100px;
 }
 
 .lista-tarefas{
     list-style-type: none;
+    gap: 15px;
+    justify-content: center;
 }
 
 .item-tarefa{
+    padding: 10px;
+    min-width: 100px;
+    max-width: 180px;
+    text-align: center;
+
     display: flex;
-    justify-content: center;
-    align-content: center;
     flex-direction: column;
-    gap: 5px;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .first-section p{

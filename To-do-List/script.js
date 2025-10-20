@@ -1,65 +1,98 @@
 const output = document.getElementById("output")
-const tarefas = [] // Inicia a array
+const tarefas = []
 
 function adicionar(){
-    const nameValue = document.getElementById("name-adicionar").value // Validar
-    const texttarefasValue = document.getElementById("texttarefas").value // validar
+    const nameValue = document.getElementById("name-adicionar").value
+    const texttarefasValue = document.getElementById("texttarefas").value
 
-    if(nameValue !== "" && texttarefasValue !== ""){
-        tarefas.push({ nome: nameValue, tarefa: texttarefasValue }) // Adiciona na array o
-        atualizarLista() // Atualiza a lista                        // objeto
-
-        // Limpa os campos
-        document.getElementById("name-adicionar").value = ""
-        document.getElementById("texttarefas").value = ""
+    if(!nameValue || !texttarefasValue){
+        alert("Preencha todos os campos!")
+        return
     }
 
-    texttarefasValue.value = "" // Limpa o input text
-    atualizarLista() // Atualiza a lista automaticamente
+    const nomeJaExiste = tarefas.some(item => item.nome === nameValue)
+        if(nomeJaExiste){
+            alert("Este nome já foi adicionado!")
+            return
+        }
+
+    const tarefasDoUsuario = tarefas.filter(item => item.nome === nameValue)
+
+    if(tarefasDoUsuario.length >= 3){
+        alert("Limite de 3 tarefas por nome atingido!")
+        return
+    }
+
+    tarefas.push({ nome: nameValue, tarefa: texttarefasValue })
+
+    atualizarLista()
+    limparCampos()
 }
 
 function atualizarLista(){
-    output.innerHTML = "" // Limpa o input
+    output.innerHTML = ""
 
-    if(tarefas.length === 0){ // Caso lista tarefas esteja vazia
-        output.innerHTML = "<p class='sem-tarefas' >Nenhuma tarefa adicionada.</p>"
-        return              // Criação de um parágrafo para informar na tela
-    }
+    tarefas.forEach((item, index) =>{
+        const ul = document.createElement("ul")
+        ul.classList.add("lista-tarefas")
 
-    tarefas.forEach((item, index) =>{ // forEach para verificar cada item da lista
-        const ul = document.createElement("ul") // Criando uma ul
-        ul.classList.add("lista-tarefas") // Criando uma classe para a ul
+        const li = document.createElement("li")
+        li.classList.add("item-tarefa")
 
-        const li = document.createElement("li") // Criando uma li
-        li.classList.add("item-tarefa") // Criando uma classe para a ul
-
-        li.innerHTML = //Criando a lista com JS
+        li.innerHTML =  
         `
-        <strong>Nome:</strong> ${item.nome} <strong>Tarefa:</strong> ${item.tarefa}
+            <strong><span>Nome:</span></strong> ${item.nome} 
+            <strong><span>Tarefa:</span></strong> ${item.tarefa}
 
-        <button class="btn-excluir" onclick="excluirIndividual(${index})">Excluir</button>
+            <button class="btn excluir" onclick="excluirIndividual(${index})">Delete</button>
 
         `
-        // Criação da lista passando nome, tarefa e um botão
-
-        ul.appendChild(li) // Adicionando uma li JS
-        output.appendChild(ul) // Adicionando um ul pelo JS
+        ul.appendChild(li)
+        output.appendChild(ul)
     })
 }
 
-function excluirIndividual(index){ // Função para excluir as tarefas, mas cada uma com seu
-    tarefas.splice(index, 1)       // excluir respectivo
-    atualizarLista() // Atualizando a lista no final
+function excluirIndividual(index){
+    tarefas.splice(index, 1)
+    atualizarLista()
+    limparCampos()
 }
 
-function excluir(){
-    const nomeExcluir = document.getElementById("name-excluir").value.trim()
-    // Criando e validando o name-excluir, junto com .trim para remover os espaços na string
-
-    if(nomeExcluir !== ""){
-        const novaLista = tarefas.filter(item => item.nome !== nomeExcluir) // Filtrando pelo
-        tarefas.length = 0  // Contagem dos itens                           // e excluindo ele 
-        tarefas.push(...novaLista) // Adicionando uma nova array com os itens anteriores
-        atualizarLista() // Atualizando a lista no final
+function editar(){
+    if(tarefas.length === 0){
+        alert("Lista vazia!")
+        return
     }
+
+    const editNameValue = document.getElementById("name-adicionar").value.trim()
+    const editTexttarefasValue = document.getElementById("texttarefas").value.trim()
+
+    if(!editNameValue || !editTexttarefasValue){
+        alert("Preencha todos os campos!")
+        return
+    }
+
+    if(!/^[a-zA-Z\s]+$/.test(editNameValue) || !/^[a-zA-Z\s]+$/.test(editTexttarefasValue)){
+        alert(`Digite um nome, sem números ou símbolos!`)
+        return
+    }
+
+    const indice = tarefas.findIndex(item => item.nome === editNameValue)
+
+    if(indice === -1){
+        alert(`${editNameValue} não encontrado na lista!`)
+        return
+    }
+
+    tarefas[indice].tarefa = editTexttarefasValue
+
+    limparCampos()
+    atualizarLista()
+
+    alert(`Tarefa de ${editNameValue} atualizada com sucesso!`)
+}
+
+function limparCampos(){
+    document.getElementById("name-adicionar").value = ""
+    document.getElementById("texttarefas").value = ""
 }

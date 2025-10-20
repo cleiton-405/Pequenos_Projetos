@@ -28,111 +28,37 @@ function conversor(){
     const selectValue1 = document.getElementById("conversor1").value
     const selectValue2 = document.getElementById("conversor2").value
 
-    let resultado = 0
-
     if(!numValue || isNaN(numValue) || numValue <= 0){
         alert("Digite um número maior que zero")
-        output.innerHTML = ""
+        document.getElementById("num").value = ""
         return
     }
 
-//////////////////////////////////////////////////////////////////////////////////////////////
-    //Euro
-
-    if(selectValue1 == "euro" && selectValue2 == "euro"){
-        output.innerHTML = ` !!! Ambas moedas iguais !!! `
+    if(selectValue1 === selectValue2){
+        output.innerHTML = "Ambas moedas são iguais"
+        return
     }
 
-    if(selectValue1 == "euro" && selectValue2 == "dolar"){
-        resultado = numValue * 1.14
-
-        output.innerHTML = `${numValue} euros = ${resultado.toFixed(2)} dolares`
+    const taxas = {
+        euro: {dolar: 1.14, real: 6.45, iene: 1559.28},
+        dolar: {euro: 0.88, real: 5.67, iene: 1369.04},
+        real: {euro: 0.15, dolar: 0.18, iene: 241.62},
+        iene: {euro: 0.00064, dolar: 0.00073, real: 0.0041}
     }
 
-    if(selectValue1 == "euro" && selectValue2 == "real"){
-        resultado = numValue * 6.45
+    if(taxas[selectValue1] && taxas[selectValue1][selectValue2]) {
+        const taxa = taxas[selectValue1][selectValue2]
+        const resultado = numValue * taxa
 
-        output.innerHTML = `${numValue} euros = ${resultado.toFixed(2)} reais`
+        output.innerHTML = `${numValue} ${selectValue1}s = ${resultado.toFixed(2)} ${selectValue2}s`
+    }else{
+        output.innerHTML = "Conversão não disponível."
     }
+}
 
-    if(selectValue1 == "euro" && selectValue2 == "iene"){
-        resultado = numValue * 1559.28
-
-        output.innerHTML = `${numValue} euros = ${resultado.toFixed(2)} ienes`
-    }
-
-//////////////////////////////////////////////////////////////////////////////////////////////
-    //dolar
-
-    if(selectValue1 == "dolar" && selectValue2 == "dolar"){
-        output.innerHTML = ` !!! Ambas moedas iguais !!! `
-    }
-
-    if(selectValue1 == "dolar" && selectValue2 == "euro"){
-        resultado = numValue * 0.88
-
-        output.innerHTML = `${numValue} dolares = ${resultado.toFixed(2)} euros`
-    }
-
-    if(selectValue1 == "dolar" && selectValue2 == "real"){
-        resultado = numValue * 5.67
-
-        output.innerHTML = `${numValue} dolares = ${resultado.toFixed(2)} reais`
-    }
-
-    if(selectValue1 == "dolar" && selectValue2 == "iene"){
-        resultado = numValue * 1369.04
-
-        output.innerHTML = `${numValue} dolares = ${resultado.toFixed(2)} ienes`
-    }
-    
-//////////////////////////////////////////////////////////////////////////////////////////////
-    //Real
-
-    if(selectValue1 == "real" && selectValue2 == "real"){
-        output.innerHTML = ` !!! Ambas moedas iguais !!! `
-    }
-
-    if(selectValue1 == "real" && selectValue2 == "euro"){
-        resultado = numValue * 0.15
-
-        output.innerHTML = `${numValue} reais = ${resultado.toFixed(2)} euros`
-    }
-
-    if(selectValue1 == "real" && selectValue2 == "dolar"){
-        resultado = numValue * 0.18
-
-        output.innerHTML = `${numValue} reais = ${resultado.toFixed(2)} dolares`
-    }
-
-    if(selectValue1 == "real" && selectValue2 == "iene"){
-        resultado = numValue * 241.62
-
-        output.innerHTML = `${numValue} reais = ${resultado.toFixed(2)} ienes`
-    }
-
-//////////////////////////////////////////////////////////////////////////////////////////////
-    //Iene
-
-    if(selectValue1 == "iene" && selectValue2 == "iene"){
-        output.innerHTML = ` !!! Ambas moedas iguais !!! `
-    }
-
-    if(selectValue1 == "iene" && selectValue2 == "euro"){
-        resultado = numValue * 0.00064
-
-        output.innerHTML = `${numValue} ienes = ${resultado.toFixed(2)} euros`
-    }
-
-    if(selectValue1 == "iene" && selectValue2 == "dolar"){
-        resultado = numValue * 0.00073
-
-        output.innerHTML = `${numValue} ienes = ${resultado.toFixed(2)} dolares`
-    }
-
-    if(selectValue1 == "iene" && selectValue2 == "real"){
-        resultado = numValue * 0.0041
-
-        output.innerHTML = `${numValue} ienes = ${resultado.toFixed(2)} reais`
-    }
+function limparCampos(){
+    document.getElementById("num").value = ""
+    document.getElementById("conversor1").selectedIndex = 0
+    document.getElementById("conversor2").selectedIndex = 0
+    output.innerHTML = ""
 }

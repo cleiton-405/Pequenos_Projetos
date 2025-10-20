@@ -15,27 +15,25 @@
 
     <main>
         <section class="first-section">
-            <p>Máximo 3 tarefas</p>
-
+            <p>Limite máximo 3</p>
+            
             <label class="first-label">
-                <input type="text" id="name-adicionar" placeholder="Digite seu nome...">
+                <input type="text" id="name-adicionar" placeholder="Your name...">
             </label>
-
-            <br><br>
 
             <label class="second-label">
-                <input type="text" id="texttarefas" placeholder="Escreva aqui...">
+                <input type="text" id="texttarefas" placeholder="Your task...">
             </label>
 
-            <br><br>
-
-            <button class="button-add" onclick="adicionar()">Adicionar</button>
+            <div class="btns">
+                <button class="btn add" onclick="adicionar()">Add task</button>
+                <button class="btn edit" onclick="editar()">Edit task</button>
+            </div>
         </section>
 
-        <section class="second-section">
+        <div class="second-section">
             <div id="output"></div>
-
-        </section>
+        </div>
     </main>
 
     <script src="script.js"></script>

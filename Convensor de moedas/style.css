@@ -1,11 +1,41 @@
-body{
-    text-align: center;
-    background-color: rgb(175, 174, 174);
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
-main h1{
+body{
+    text-align: center;
+    background-image: url(/Imagem/dolar.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+main{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #8b8b8b;
+    width: 450px;
+    height: 400px;
+    border-radius: 20px;
+    padding: 20px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 15px;
+}
+
+h1{
     font-family: chalk;
-    font-size: 40px;
+    font-size: 50px;
+    color: #ff0000;
 }
 
 main p{
@@ -18,26 +48,16 @@ main p{
 }
 
 span{
-    font-weight: bold
-}
-
-main{
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #ff914d;
-    margin: auto;
-    width: 40%;
-    border-radius: 20px;
-    margin-top: 5%;
-    padding: 20px;
-}
-
-.container-input{
-    margin-bottom: 50px;
+    font-weight: bold;
 }
 
 input::placeholder{
-    color: #00bf63;
+    color: #f13232;
     font-style: italic;
+}
+
+.container-input p{
+    margin-bottom: 20px;
 }
 
 .container-input input{
@@ -45,32 +65,27 @@ input::placeholder{
     font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
     border-radius: 5px;
-    padding: 5px;
-    border: 2px solid black;
+    padding: 10px;
+    border: 2px solid #f13232;
     cursor: pointer;
 }
 
 .container-conversor{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
 
-    gap: 1px;
-    margin-bottom: 50px;
+    gap: 20px;
 }
 
 select{
     outline: none;
     font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
-    border-radius: 15px;
-    padding: 5px;
-    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    border: 2px solid #f13232;
     cursor: pointer;
-}
-
-.container-result{
-    margin-bottom: 30px;
 }
 
 .container-result output{
@@ -80,14 +95,16 @@ select{
 
 button{
     font-weight: bold;
-    border-radius: 15px;
-    padding: 15px;
+    border-radius: 5px;
+    padding: 5px;
     border: 2px solid black;
-    font-size: 30px;
-    background-color: #00bf63;
+    font-size: 20px;
+    background-color: #e70808;
     cursor: pointer;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 button:hover{
-    color: white;
+    background-color: white;
+    color: #e70808;
 }
