@@ -1,25 +1,46 @@
 const output = document.getElementById("output")
 const tarefas = []
 
+const mostrarAlert = (mensagem) =>{
+    const alert = document.getElementById("alert")
+    const alertText = document.getElementById("alert-text")
+
+    alertText.innerText = mensagem
+    alert.style.display = "block"
+
+    setTimeout(() =>{
+        closedAlert()
+    }, 2500)
+}
+
+const closedAlert = () =>{
+    document.getElementById("alert").style.display = "none"
+}
+
 function adicionar(){
     const nameValue = document.getElementById("name-adicionar").value
     const texttarefasValue = document.getElementById("texttarefas").value
 
     if(!nameValue || !texttarefasValue){
-        alert("Preencha todos os campos!")
+        mostrarAlert("Preencha todos os campos!")
+        return
+    }
+
+    if(!isNaN(nameValue) || !isNaN(texttarefasValue)){
+        mostrarAlert("Apenas nomes e tarefas!")
         return
     }
 
     const nomeJaExiste = tarefas.some(item => item.nome === nameValue)
         if(nomeJaExiste){
-            alert("Este nome já foi adicionado!")
+        mostrarAlert("Este nome já foi adicionado!")
             return
         }
 
     const tarefasDoUsuario = tarefas.filter(item => item.nome === nameValue)
 
     if(tarefasDoUsuario.length >= 3){
-        alert("Limite de 3 tarefas por nome atingido!")
+        mostrarAlert("Limite de 3 tarefas por nome atingido!")
         return
     }
 
@@ -60,7 +81,7 @@ function excluirIndividual(index){
 
 function editar(){
     if(tarefas.length === 0){
-        alert("Lista vazia!")
+        mostrarAlert("Lista vazia!")
         return
     }
 
@@ -68,19 +89,19 @@ function editar(){
     const editTexttarefasValue = document.getElementById("texttarefas").value.trim()
 
     if(!editNameValue || !editTexttarefasValue){
-        alert("Preencha todos os campos!")
+        mostrarAlert("Preencha todos os campos!")
         return
     }
 
     if(!/^[a-zA-Z\s]+$/.test(editNameValue) || !/^[a-zA-Z\s]+$/.test(editTexttarefasValue)){
-        alert(`Digite um nome, sem números ou símbolos!`)
+        mostrarAlert(`Digite um nome, sem números ou símbolos!`)
         return
     }
 
     const indice = tarefas.findIndex(item => item.nome === editNameValue)
 
     if(indice === -1){
-        alert(`${editNameValue} não encontrado na lista!`)
+        mostrarAlert(`${editNameValue} não encontrado na lista!`)
         return
     }
 
@@ -89,7 +110,7 @@ function editar(){
     limparCampos()
     atualizarLista()
 
-    alert(`Tarefa de ${editNameValue} atualizada com sucesso!`)
+    mostrarAlert(`Tarefa de ${editNameValue} atualizada com sucesso!`)
 }
 
 function limparCampos(){

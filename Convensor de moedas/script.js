@@ -23,19 +23,40 @@
 
 const output = document.getElementById("output")
 
+const mostrarAlert = (mensagem) =>{
+    const alert = document.getElementById("alert")
+    const alertText = document.getElementById("alert-text")
+
+    alertText.innerText = mensagem
+    alert.style.display = "block"
+
+    setTimeout(() =>{
+        closedAlert()
+    }, 2500)
+}
+
+const closedAlert = () =>{
+    document.getElementById("alert").style.display = "none"
+}
+
 function conversor(){
     const numValue = Number(document.getElementById("num").value)
     const selectValue1 = document.getElementById("conversor1").value
     const selectValue2 = document.getElementById("conversor2").value
 
     if(!numValue || isNaN(numValue) || numValue <= 0){
-        alert("Digite um número maior que zero")
+        mostrarAlert("Digite um número maior que zero")
         document.getElementById("num").value = ""
         return
     }
 
+    if(!selectValue1 || !selectValue2){
+        mostrarAlert("Selecione uma moeda")
+        return
+    }
+
     if(selectValue1 === selectValue2){
-        output.innerHTML = "Ambas moedas são iguais"
+        mostrarAlert("Ambas moedas são iguais")
         return
     }
 
