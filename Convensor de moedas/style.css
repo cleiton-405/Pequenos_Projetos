@@ -6,7 +6,7 @@
 
 body{
     text-align: center;
-    background-image: url(/Imagem/dolar.jpg);
+    background-image: url(./Imagem/dolar.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }

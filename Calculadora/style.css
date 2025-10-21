@@ -1,16 +1,16 @@
-body{
-    background-color: rgb(176, 178, 182);
-}
-
 @font-face {
    font-family: animada;
    src: url(Fonte/Howdy\ Koala.ttf);
 }
 
+body{
+    background-color: rgb(176, 178, 182);
+    font-family: animada;
+}
+
 h1{
     text-align: center;
-    font-family: animada;
-    color: rgb(37, 102, 223);
+    color: #0097b2;;
 }
 
 main{
@@ -18,56 +18,61 @@ main{
     padding: 15px;
     margin: auto;
     border: 2px solid black;
+    font-family: animada;
     border-radius: 10px;
     width: 25%;
-}
 
-.inputs{
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    margin: auto;
-    margin-top: 10px;
-    width: 50%;
+    flex-direction: column;
+    align-items: center;
 }
 
 input{
     outline: none;
     cursor: pointer;
-    font-family: Arial, Helvetica, sans-serif;
     border-radius: 5px;
-    padding: 5px;
+    padding: 10px;
     border: 2px solid black;
-
-    &:hover{
-        border: 1px solid black;
-        &::placeholder{
-            color: black
-        }
-    }
+    background-color: #0097b2;
+    font-family: animada;
+    width: 80%;
 }
 
-.bottoms{
-    text-align: center;
-    padding: 10px;
-
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
+input::placeholder{
+    color: black;
 }
 
 button{
+    font-size: 15px;
     padding: 10px;
     background-color: #0097b2;
     font-weight: bold;
-    font-family: animada;
     border-radius: 10px;
+    font-family: animada;
     cursor: pointer;
 }
 
 button:hover{
-    color: rgb(255, 255, 255);
+    color: #0097b2;
+    background-color: white;
+    border-color: #0097b2;
+}
+
+#selecao select{
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid black;
+    background-color: #0097b2;
+    font-family: animada;
+    width: 150px;
+}
+
+.resposta{
+    display: flex;
+    flex-direction: row;
+
+    gap: 10px;
 }
 
 .result{
@@ -77,6 +82,31 @@ button:hover{
     background-color: #0097b2;
     border-radius: 10px;
     padding: 10px;
-    width: 50px;
-    height: 20px;
+    width: 60%;
+}
+
+.alert-error{
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 2px solid #f5c6cb;
+    border-radius: 5px;
+    padding: 15px;
+    font-family: animada;
+    z-index: 1000;
+    max-width: 80%;
+    text-align: center;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.alert-error p{
+    margin: 0;
+    padding-right: 10px;
 }

@@ -17,41 +17,41 @@
 
         <br><br>
 
-            <main>
-                <section>
-                    <div class="inputs">
-                        <label>
-                            <input type="number" id="n1" placeholder="Digite um número...">
-                        </label>
+        <div id="alert" class="alert-error" style="display: none;">
+            <p id="alert-text"></p>
+        </div>
 
-                    <br><br>
-
-                        <label>
-                            <input type="number" id="n2" placeholder="Digite um número...">
-                        </label>
-                    </div>
-                </section>
-
+        <main>
+            <section>
+                <div class="inputs">
+                    <label>
+                        <input type="number" id="n1" placeholder="Digite um numero...">
+                    </label>
+                <br><br>
+                    <label>
+                        <input type="number" id="n2" placeholder="Digite um numero...">
+                    </label>
+                </div>
+            </section>
         <br><br>
-
-                <section>
-                    <div class="bottoms">
-                        <button onclick="somar()">Somar</button>
-                        <button onclick="diminuir()">Diminuir</button>
-                        <button onclick="multiplicar()">Multiplicar</button>
-                        <button onclick="dividir()">Dividir</button>
-                        <button onclick="porcentagem()">Porcentagem</button>
-                    </div>
-                </section>
-
+            <section id="selecao">
+                <select id="operacao">
+                    <option value="" disabled selected hidden>Options...</option>
+                    <option value="somar">Somar</option>
+                    <option value="diminuir">Diminuir</option>
+                    <option value="multiplicar">Multiplicar</option>
+                    <option value="dividir">Dividir</option>
+                    <option value="porcentagem">Porcentagem</option>
+                </select>
+            </section>
         <br><br>
-
-                <section>
-                    <div class="result">
-                        <output id="output"></output>
-                    </div>
-                </section>
-            </main>
+            <div class="resposta">
+                    <button type="button" onclick="calculo()">Calcular</button>
+                <div class="result">
+                    <output id="output"></output>
+                </div>
+            </div>
+        </main>
 
     <script src="script.js"></script>
 
